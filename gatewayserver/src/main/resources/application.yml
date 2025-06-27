@@ -1,0 +1,40 @@
+server:
+  port: 8761
+  servlet:
+    contextPath: /app
+
+spring:
+  application:
+    name: gateway-server
+  profiles:
+    active: dev
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+logging:
+  level:
+    org:
+      springframework:
+        web: debug
+        security:
+          web:
+            access: debug
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+
